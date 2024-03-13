@@ -57,8 +57,14 @@ public class App {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
-            String strSelect = "select departments.dept_no, dept_manager.emp_no, employees.first_name, employees.last_name, titles.title, salaries.salary\n" +
-                    " from departments, dept_manager, employees, titles, salaries where departments.dept_name = '" + dept_name + "' and dept_manager.dept_no = departments.dept_no and employees.emp_no = dept_manager.emp_no and titles.emp_no = dept_manager.emp_no and salaries.emp_no = dept_manager.emp_no and dept_manager.to_date = '9999-01-01' and titles.to_date = '9999-01-01' and salaries.to_date = '9999-01-01';";
+            String strSelect = "select departments.dept_no, dept_manager.emp_no, employees.first_name, " +
+                    "employees.last_name, titles.title, salaries.salary\n" +
+                    " from departments, dept_manager, employees, titles, salaries " +
+                    "where departments.dept_name = '" + dept_name + "' and dept_manager.dept_no = " +
+                    "departments.dept_no and employees.emp_no = dept_manager.emp_no and " +
+                    "titles.emp_no = dept_manager.emp_no and salaries.emp_no = dept_manager.emp_no " +
+                    "and dept_manager.to_date = '9999-01-01' and titles.to_date = '9999-01-01' " +
+                    "and salaries.to_date = '9999-01-01';";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
